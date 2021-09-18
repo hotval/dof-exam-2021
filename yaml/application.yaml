@@ -2,12 +2,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dof-exam-2021-deploy
+  name: dofexam-app1-200036973-deploy
 spec:
   replicas: 3
   selector:
     matchLabels: 
-      app: dof-exam-2021
+      app: dofexam-app1-200036973
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
@@ -17,20 +17,20 @@ spec:
   template:
     metadata:
       labels:
-        app: dof-exam-2021
+        app: dofexam-app1-200036973
     spec:
       containers:
       - name: app-cont
-        image: hotval/dof-exam-2021:%IMAGE-PLACEHOLDER%
+        image: hotval/dofexam-app1-200036973:%IMAGE-PLACEHOLDER%
         ports:
         - containerPort: 80 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: dof-exam-2021-svc
+  name: dofexam-app1-200036973-svc
   labels:
-    app: dof-exam-2021
+    app: dofexam-app1-200036973
 spec:
   type: NodePort
   ports:
@@ -38,4 +38,4 @@ spec:
     nodePort: 32000
     protocol: TCP
   selector:
-    app: dof-exam-2021
+    app: dofexam-app1-200036973
