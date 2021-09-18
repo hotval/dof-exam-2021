@@ -23,7 +23,10 @@ spec:
       - name: app-cont
         image: hotval/dofexam-app1-200036973:%IMAGE-PLACEHOLDER%
         ports:
-        - containerPort: 80 
+        - containerPort: 80
+        env:
+        - name: APP_VARIABLE
+          value: "'Valentin Dimitrov' hotval/dofexam-app1-200036973"
 ---
 apiVersion: v1
 kind: Service
